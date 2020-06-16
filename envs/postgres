@@ -1,0 +1,3 @@
+POSTGRES_DB=shop_db
+POSTGRES_PASSWORD=shop_password
+POSTGRES_USER=shop_user

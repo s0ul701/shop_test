@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+
+  server:
+    build:
+      context: ./
+      dockerfile: ./server/Dockerfile
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ./server:/server
+    ports:
+      - 8000:8000
+    depends_on:
+      - db
+    env_file: ./envs/server
+
+  db:
+    image: postgres:12.2-alpine
+    env_file: ./envs/postgres
+    volumes:
+      - ./pg_data:/var/lib/postgresql/data/
