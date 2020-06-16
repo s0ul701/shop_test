@@ -3,6 +3,7 @@ dj-database-url==0.5.0   # auto database configuration
 Fabric3==1.14.post1   # fabfile.py instrument
 gunicorn==20.0.4   # Python WSGI HTTP server
 psycopg2-binary==2.8.4   # PostgreSQL adapter
+Pillow==7.1.2   # for ImageField
 
 ### For codestyle and testing
 flake8==3.7.9   # linter

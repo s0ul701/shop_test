@@ -9,6 +9,7 @@ INSTALLED_APPS = (
 
 LOCAL_APPS = (
     'apps.users',
+    'apps.products',
 )
 
 INSTALLED_APPS += LOCAL_APPS
