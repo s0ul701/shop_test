@@ -1,7 +1,6 @@
 from django.core.validators import MinValueValidator
 from django.db import models
 
-
 from apps.utils import get_file_path
 
 
