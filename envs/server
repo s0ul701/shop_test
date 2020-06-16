@@ -1,0 +1,5 @@
+DATABASE_URL=postgres://shop_user:shop_password@db:5432/shop_db
+PYTHONDONTWRITEBYTECODE=1
+PYTHONUNBUFFERED=1
+SECRET_KEY=2r1sw1wdchex#roo2z(u+3xiq0kfl81ai4r2v9#3ar(k2wvg6&
+DEBUG=True
