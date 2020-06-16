@@ -13,6 +13,9 @@ class CustomUserAdmin(UserAdmin):
         ('Important dates', {'fields': ('last_login', 'date_joined')}),
     )
 
+    def has_add_permission(self, request):
+        return False
+
 
 admin.site.unregister(User)
 admin.site.unregister(Group)
