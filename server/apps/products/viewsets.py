@@ -1,4 +1,4 @@
-from rest_framework import mixins, viewsets
+from rest_framework import filters, mixins, viewsets
 from rest_framework.permissions import IsAdminUser
 
 from apps.products.models import Product
@@ -15,3 +15,6 @@ class ProductViewSet(mixins.CreateModelMixin,
     serializer_class = ProductSerializer
     queryset = Product.objects.all()
     permission_classes = (IsAdminUser | ReadOnly,)
+    filter_backends = (filters.OrderingFilter, filters.SearchFilter)
+    ordering_fields = ('deal_date', 'price', 'quantity', )
+    search_fields = ('title', 'description',)

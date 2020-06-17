@@ -5,7 +5,9 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # 3rd party packages
     'rest_framework',
+    'django_filters',
 )
 
 LOCAL_APPS = (
