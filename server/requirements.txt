@@ -12,3 +12,4 @@ django-filter==2.3.0   # for DRF filters
 flake8==3.7.9   # linter
 pylint==2.4.4   # linter
 isort==4.3.21   # imports order
+pylint-django==2.0.15   # linter
