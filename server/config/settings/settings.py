@@ -1,3 +1,4 @@
+from datetime import timedelta
 import os
 
 import dj_database_url
@@ -89,5 +90,25 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(f'{BASE_DIR}/../', 'static')
-MEDIA_URL = "/media/"
-MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(f'{BASE_DIR}/../', "media")
+
+#########################################################################################
+# REST framework configs
+#########################################################################################
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+}
+
+#########################################################################################
+# JWT-tokens configs
+#########################################################################################
+
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(weeks=40),
+    'REFRESH_TOKEN_LIFETIME': timedelta(weeks=80),
+    'AUTH_HEADER_TYPES': ('Token',),
+}
