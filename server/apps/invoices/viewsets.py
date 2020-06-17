@@ -1,4 +1,5 @@
-from rest_framework import mixins, viewsets
+from django_filters.rest_framework import DjangoFilterBackend
+from rest_framework import filters, mixins, viewsets
 from rest_framework.permissions import IsAdminUser
 
 from apps.invoices.models import Invoice
@@ -14,6 +15,9 @@ class InvoiceViewSet(mixins.CreateModelMixin,
     serializer_class = InvoiceSerializer
     queryset = Invoice.objects.all()
     permission_classes = (IsAdminUser | InvoiceOwnPermission,)
+    filter_backends = (DjangoFilterBackend, filters.OrderingFilter)
+    filterset_fields = ('customer',)
+    ordering_fields = ('deal_date',)
 
     def get_queryset(self):
         if self.request.user.is_staff:

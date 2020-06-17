@@ -6,6 +6,7 @@ psycopg2-binary==2.8.4   # PostgreSQL adapter
 Pillow==7.1.2   # for ImageField
 djangorestframework==3.11.0   # for REST API
 djangorestframework-simplejwt==4.4.0   # for JWT support
+django-filter==2.3.0   # for DRF filters
 
 ### For codestyle and testing
 flake8==3.7.9   # linter
