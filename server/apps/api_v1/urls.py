@@ -8,7 +8,7 @@ from apps.users.viewsets import UserViewSet
 app_name = 'api_v1'
 
 router = routers.SimpleRouter()
-router.register('users', UserViewSet, basename='branches')
+router.register('users', UserViewSet, basename='users')
 
 urlpatterns = [
     path('', include(router.urls)),
