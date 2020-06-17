@@ -1,9 +1,9 @@
 from django.contrib.auth.models import User
 from rest_framework import serializers
 
+from .invoice_position import InvoicePositionSerializer
 from apps.invoices.models import Invoice, InvoicePosition
 from apps.users.serializers import UserSerializer
-from .invoice_position import InvoicePositionSerializer
 
 
 class InvoiceSerializer(serializers.ModelSerializer):
