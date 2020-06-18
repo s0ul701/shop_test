@@ -30,4 +30,4 @@ class InvoiceSerializer(serializers.ModelSerializer):
                 User.objects.get(id=dict_['customer'])
             ).data
         })
-        return(dict_)
+        return dict_

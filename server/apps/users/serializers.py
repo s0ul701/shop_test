@@ -20,8 +20,7 @@ class UserSerializer(serializers.ModelSerializer):
         validate_password(attrs['password'])
         if attrs.pop('confirm_password') == attrs['password']:
             return super().validate(attrs)
-        else:
-            raise serializers.ValidationError('Password mismatch.')
+        raise serializers.ValidationError('Password mismatch.')
 
     def create(self, validated_data):
         """"Create User and set password for him"""
@@ -48,8 +47,7 @@ class UserUpdateSerializer(serializers.ModelSerializer):
                 validate_password(password)
                 if attrs.pop('confirm_password') == password:
                     return super().validate(attrs)
-                else:
-                    raise serializers.ValidationError('Password mismatch.')
+                raise serializers.ValidationError('Password mismatch.')
             raise serializers.ValidationError('Confirm password, please.')
         return super().validate(attrs)
 

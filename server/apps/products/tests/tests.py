@@ -61,7 +61,7 @@ class ProductTests(APITestCase):
     def test_product_creation_missing_fields(self, *args, **kwargs):
         """Test Product creation method for missing fields"""
         self.create_and_authenticate_admin()
-        for field in self.product_creation_data.keys():
+        for field in self.product_creation_data:
             with self.subTest(field=field):
                 dict_with_missing_field = self.product_creation_data.copy()
                 del dict_with_missing_field[field]

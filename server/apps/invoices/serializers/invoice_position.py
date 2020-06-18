@@ -21,4 +21,4 @@ class InvoicePositionSerializer(serializers.ModelSerializer):
                 Product.objects.get(id=dict_['product'])
             ).data
         })
-        return(dict_)
+        return dict_

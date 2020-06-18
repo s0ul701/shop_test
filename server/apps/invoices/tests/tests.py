@@ -38,10 +38,8 @@ class ProductTests(APITestCase):
         """Test Invoice list method"""
         self.create_and_authenticate_admin()
         invoices = InvoiceFactory.create_batch(20)
-        [
+        for invoice in invoices:
             InvoicePositionFactory.create_batch(10, invoice=invoice)
-            for invoice in invoices
-        ]
         response = self.client.get(self.url)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
