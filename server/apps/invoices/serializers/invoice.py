@@ -16,11 +16,9 @@ class InvoiceSerializer(serializers.ModelSerializer):
         fields = ('customer', 'positions', 'deal_date',)
 
     def create(self, validated_data):
-        print(validated_data)
         positions = validated_data.pop('positions')
         invoice = Invoice.objects.create(**validated_data)
         for position in positions:
-            print(position)
             InvoicePosition.objects.create(**position, invoice=invoice)
         return invoice
 
