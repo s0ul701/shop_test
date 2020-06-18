@@ -3,7 +3,7 @@ from rest_framework import mixins, throttling, viewsets
 from rest_framework_simplejwt.views import TokenObtainPairView
 
 from apps.users.permissions import AccountOwnerPermission
-from apps.users.serializers import UserSerializer
+from apps.users.serializers import UserSerializer, UserUpdateSerializer
 
 
 class UserViewSet(mixins.CreateModelMixin,
@@ -15,6 +15,15 @@ class UserViewSet(mixins.CreateModelMixin,
     serializer_class = UserSerializer
     queryset = User.objects.all()
     permission_classes = (AccountOwnerPermission,)
+
+    def get_serializer_class(self):
+        serializers_mapping = {
+            **dict.fromkeys(('update', 'partial_update'), UserUpdateSerializer),
+            'create': UserSerializer,
+        }
+        return serializers_mapping.get(
+            self.action, super().get_serializer_class()
+        )
 
 
 class TokenThrottle(throttling.AnonRateThrottle):

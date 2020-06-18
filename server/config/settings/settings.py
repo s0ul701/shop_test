@@ -1,5 +1,5 @@
-from datetime import timedelta
 import os
+from datetime import timedelta
 
 import dj_database_url
 
@@ -106,7 +106,7 @@ REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
 
     'DEFAULT_THROTTLE_CLASSES': ('rest_framework.throttling.AnonRateThrottle',),
-    'DEFAULT_THROTTLE_RATES': {'token': '7/hr'},
+    'DEFAULT_THROTTLE_RATES': {'token': '7/hr', 'anon': '10/sec', 'user': '10/sec'},
 }
 
 #########################################################################################
@@ -117,4 +117,18 @@ SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(weeks=40),
     'REFRESH_TOKEN_LIFETIME': timedelta(weeks=80),
     'AUTH_HEADER_TYPES': ('Token',),
+}
+
+#########################################################################################
+# Redis configs
+#########################################################################################
+
+CACHES = {
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": "redis://redis:6379/0",
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+        }
+    }
 }
