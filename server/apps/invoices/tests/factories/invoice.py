@@ -1,4 +1,5 @@
 import factory
+
 from apps.invoices.models import Invoice
 from apps.users.tests.factories import UserFactory
 

@@ -1,13 +1,13 @@
-from django.http.response import FileResponse, HttpResponse
+from django.http.response import HttpResponse
 from django_filters.rest_framework import DjangoFilterBackend
-from rest_framework import (
-    decorators, filters, mixins, response, status, viewsets
-)
+from rest_framework import (decorators, filters, mixins, response, status,
+                            viewsets)
 from rest_framework.permissions import IsAdminUser
 
 from apps.invoices.models import Invoice
 from apps.invoices.permissions import InvoiceOwnPermission
 from apps.invoices.serializers import InvoiceSerializer
+
 from .utils import get_invoice_pdf_str
 
 
