@@ -8,6 +8,7 @@ djangorestframework==3.11.0   # for REST API
 djangorestframework-simplejwt==4.4.0   # for JWT support
 django-filter==2.3.0   # for DRF filters
 django-redis==4.11.0   # Redis
+fpdf==1.7.2   # for PDF generation
 
 ### For codestyle and testing
 flake8==3.7.9   # linter
