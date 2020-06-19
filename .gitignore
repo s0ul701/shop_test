@@ -1,0 +1,7 @@
+**/__pycache__/
+/pg_data
+.env
+/.vscode
+static/
+media/
+*.pyc
