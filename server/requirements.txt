@@ -1,4 +1,4 @@
-Django==3.0.4
+Django==3.0.7
 dj-database-url==0.5.0   # auto database configuration
 Fabric3==1.14.post1   # fabfile.py instrument
 gunicorn==20.0.4   # Python WSGI HTTP server
